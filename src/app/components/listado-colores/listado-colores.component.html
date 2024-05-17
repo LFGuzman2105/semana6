@@ -1,0 +1,32 @@
+<div class="listado">
+    <h2>LISTADO DE COLORES</h2>
+    <form>
+        <div id="divInputs">
+            <div class="colores">
+                <label for="rojo">ROJO:</label>
+                <input type="number" id="rojo" name="rojo" min="0" max="255" [(ngModel)]="rojo" required>
+            </div>
+            <div class="colores">
+                <label for="verde">VERDE:</label>
+                <input type="number" id="verde" name="verde" min="0" max="255" [(ngModel)]="verde" required>
+            </div>
+            <div class="colores">
+                <label for="azul">AZUL:</label>
+                <input type="number" id="azul" name="azul" min="0" max="255" [(ngModel)]="azul" required>
+            </div>
+        </div>
+        <div class="boton">
+            <button (click)="agregarColor()">AGREGAR COLOR</button>
+        </div>
+        <div>
+            @for (color of colores; track color.getCodigoHexadecimal()) {
+                <div class="registro">
+                    <div [style.background]="color.getCodigoHexadecimal()" class="color"></div>
+                    <p>{{color.getCodigoHexadecimal()}}</p>
+                </div>
+            }
+            @empty {
+            }
+        </div>
+    </form>
+</div>
